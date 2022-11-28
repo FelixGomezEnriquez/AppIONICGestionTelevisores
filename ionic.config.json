@@ -1,0 +1,7 @@
+{
+  "name": "televisores",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
