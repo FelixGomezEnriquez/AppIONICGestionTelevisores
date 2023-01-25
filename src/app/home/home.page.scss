@@ -25,3 +25,30 @@
 #container a {
   text-decoration: none;
 }
+
+.añadir{
+  font-size: 300%;
+
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+
+ion-card{
+  box-shadow: 0 0 10px lightcoral;
+}
+
+.primario{
+  --background: red;
+
+}
+
+.secundario{
+  --background: red;
+
+
+}
+.terciario{
+  --background: white;
+
+}

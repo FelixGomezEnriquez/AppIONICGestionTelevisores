@@ -1,82 +1,54 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true" class="terciario">
   <ion-toolbar>
     <ion-title>
       Televisores
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>Calidad Imagen</ion-label>
-    <ion-input [(ngModel)]="televisorEditando.calidadImagen"></ion-input>
-  </ion-item>
+<ion-content [fullscreen]="true" class="primario">
 
-  <ion-item>
-    <ion-checkbox [(ngModel)]="televisorEditando.incluye_mando"></ion-checkbox>
-    <ion-label>Incluye Mando</ion-label>
-  </ion-item>
+  <ion-card class="terciario">
+    <ion-card-header>
+      <ion-card-title>TELEVISORES</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
 
-  <ion-item>
-    <ion-label>Marca</ion-label>
-    <ion-input [(ngModel)]="televisorEditando.marca"></ion-input>
-  </ion-item>
+      <ion-grid >
 
-  <ion-item>
-    <ion-label>Pulgadas</ion-label>
-    <ion-input [(ngModel)]="televisorEditando.pulgadas"></ion-input>
-  </ion-item>
+        <ion-row >
+          <ion-col *ngFor="let documentTelevisor of arrayColeccionTelevisores"
+            (click)="selecTelevisor(documentTelevisor)" size-xl="3" size-lg="3" size-md="4"
+            size-sm="6" size-xs="12"> 
 
-  <ion-item>
-    <ion-label>Tipo de pantalla</ion-label>
-    <ion-input [(ngModel)]="televisorEditando.tipo_de_pantalla"></ion-input>
-  </ion-item>
+            <ion-card>
+              <img alt="Televisor" src="https://source.unsplash.com/random/500x500/?{{documentTelevisor.data.marca}}" />
+              <ion-card-header>
+                <ion-card-title>
+                  <h1>{{documentTelevisor.data.marca}}®</h1>
+                </ion-card-title>
+                <ion-card-subtitle>
+                  <h1><ion-text color="primary"></ion-text>{{documentTelevisor.data.pulgadas}}"</h1>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  <h1><ion-text color="primary"></ion-text>{{documentTelevisor.data.calidadImagen}}</h1>
+                </ion-card-subtitle>
+              </ion-card-header>
 
-  <ion-button (click)="clickBotonInsertar()">Añadir Televisor</ion-button>
+              <ion-card-content>
+                🟢 En stock
+              </ion-card-content>
+            </ion-card>
 
-  <h1>LISTA DE TELEVISORES</h1>
-  <ion-list>
-    <ion-item *ngFor="let documentTelevisor of arrayColeccionTelevisores">
-      <ion-grid>
-        <ion-row>
-          <ion-text color="primary">
-            <h1>{{documentTelevisor.data.marca}}</h1>
-          </ion-text>
 
-        </ion-row>
-
-        <ion-row>
-          <ion-text color="tertiary">
-          <h2>{{documentTelevisor.data.calidadImagen}}</h2>
-
-          </ion-text>
-        </ion-row>
-
-        <ion-row>
-          <ion-text color="tertiary">
-          <h2>{{documentTelevisor.data.pulgadas}}</h2>
-
-          </ion-text>
-        </ion-row>
-
-        <ion-row>
-          <ion-text color="tertiary">
-          <h2>{{documentTelevisor.data.tipo_de_pantalla}}</h2>
-          </ion-text>
-        </ion-row>
-
-        <ion-row>
-          <ion-text color="tertiary">
-            <h2 *ngIf="(documentTelevisor.data.incluye_mando)">Si</h2>
-            <!-- HAY Q PROBAR ESTOOOOOOOOOOOOOOOOOOOOOOOOOO         -->
-            <h2 *ngIf="(!documentTelevisor.data.incluye_mando)">No</h2>
-  
-
-          </ion-text>
-         
+          </ion-col>
         </ion-row>
 
       </ion-grid>
-    </ion-item>
-  </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab-button class="añadir secundario"  (click)="clickBotonInsertar()"> +</ion-fab-button>
 </ion-content>

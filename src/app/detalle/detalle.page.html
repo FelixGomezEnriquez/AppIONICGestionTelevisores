@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar> 
+    <ion-title size="large" class="titulo">Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="primario">
+
+  <ion-card class="terciario">
+    <ion-card-header>
+      <ion-card-title>Marca</ion-card-title>
+      <ion-card-subtitle> <ion-input [(ngModel)]="document.data.marca"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+
+
+    <ion-card-header>
+      <ion-card-title>Pulgadas</ion-card-title>
+      <ion-card-subtitle><ion-input [(ngModel)]="document.data.pulgadas"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+
+
+    <ion-card-header>
+      <ion-card-title>Tipo de pantalla</ion-card-title>
+      <ion-card-subtitle><ion-input [(ngModel)]="document.data.tipo_de_pantalla"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+
+
+    <ion-card-header>
+      <ion-card-title>Calidad Imagen</ion-card-title>
+      <ion-card-subtitle><ion-input [(ngModel)]="document.data.calidadImagen"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-title>Incluye mando</ion-card-title>
+      <ion-card-subtitle>
+        <ion-checkbox *ngIf="(document.data.incluye_mando)" checked [(ngModel)]="document.data.incluye_mando"> Si</ion-checkbox>
+      <ion-checkbox *ngIf="(!document.data.incluye_mando)" [(ngModel)]="document.data.incluye_mando">No</ion-checkbox>
+
+      </ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-button class="secundario" fill="clear" (click)="volver()">Volver </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)="presentAlert()">Borrar </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)="clicBotonModificar()">Modificar </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(this.nuevo)" (click)="clickBotonInsertar()">Guardar </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)=""> Imagen </ion-button>
+  </ion-card>
+
+
+
+</ion-content>
