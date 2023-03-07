@@ -1,10 +1,10 @@
-<!-- <ion-header [translucent]="true" class="terciario">
+<ion-header [translucent]="true" class="terciario">
   <ion-toolbar>
     <ion-title>
       Televisores
     </ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content [fullscreen]="true" class="primario">
 
@@ -14,16 +14,13 @@
       <ion-card-subtitle></ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-
-      <ion-grid >
-
-        <ion-row >
+      <ion-grid>
+        <ion-row>
           <ion-col *ngFor="let documentTelevisor of arrayColeccionTelevisores"
-            (click)="selecTelevisor(documentTelevisor)" size-xl="3" size-lg="3" size-md="4"
-            size-sm="6" size-xs="12"> 
+            (click)="selecTelevisor(documentTelevisor)" size-xl="3" size-lg="3" size-md="4" size-sm="6" size-xs="12">
 
             <ion-card>
-              <img alt="Televisor" src="https://source.unsplash.com/random/500x500/?{{documentTelevisor.data.marca}}" />
+              <img alt="Televisor" src="{{documentTelevisor.data.imagen}}" />
               <ion-card-header>
                 <ion-card-title>
                   <h1>{{documentTelevisor.data.marca}}®</h1>
@@ -50,5 +47,24 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-fab-button class="añadir secundario"  (click)="clickBotonInsertar()"> +</ion-fab-button>
+  <ion-fab-button class="añadir secundario" (click)="clickBotonInsertar()"> +</ion-fab-button>
+  <ion-fab-button class="añadir secundario" style="right: 100px;" (click)="llamar()"><ion-icon
+      name="call"></ion-icon></ion-fab-button>
 </ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button  tab="home">
+        <ion-icon  class="iconos" name="planet"></ion-icon>
+        INICIO 
+      </ion-tab-button>
+      <ion-tab-button tab="info">
+        <ion-icon class="iconos" name="help-circle"></ion-icon>
+         INFO
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

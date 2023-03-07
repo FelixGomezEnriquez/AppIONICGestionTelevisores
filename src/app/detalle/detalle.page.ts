@@ -7,6 +7,10 @@ import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
+
+
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
@@ -30,7 +34,8 @@ export class DetallePage implements OnInit {
 
     private alertController: AlertController,
     private toastController: ToastController,
-    private imagePicker: ImagePicker
+    private imagePicker: ImagePicker,
+    private socialSharing:SocialSharing
   ) {}
 
   ngOnInit() {
@@ -50,7 +55,7 @@ export class DetallePage implements OnInit {
             this.document.id = resultado.payload.id;
             this.document.data = resultado.payload.data();
             // Como ejemplo, mostrar el título de la tarea en consola
-            console.log(this.document.data.marca);
+            console.log(this.document.data);
           } else {
             // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
             this.document.data = {} as Televisor;
@@ -76,7 +81,9 @@ export class DetallePage implements OnInit {
           text: 'SI',
           role: 'confirm',
           handler: () => {
+            this.deleteFile(this.document.data.imagen);
             this.clicBotonBorrar();
+
           },
         },
       ],
@@ -89,9 +96,13 @@ export class DetallePage implements OnInit {
   }
 
   clicBotonBorrar() {
+    
+    this.deleteFile(this.document.data.imagen);
+
     this.firestoreService.borrar('televisores', this.id).then(() => {
       this.router.navigate(['/home']);
     });
+
   }
 
   clicBotonModificar() {
@@ -165,10 +176,13 @@ export class DetallePage implements OnInit {
                     .then((snapshot) => {
                       snapshot.ref.getDownloadURL().then((downloadURL) => {
                         console.log('downloadURL:' + downloadURL);
+
+                        this.document.data.imagen=downloadURL;
+
                         toast.present();
                         loading.dismiss();
                       });
-                    });
+                    }).catch((error) => {console.log(error);});
                 }
               },
               (err) => {
@@ -197,5 +211,11 @@ export class DetallePage implements OnInit {
         console.log(err)
 
       });
+  }
+
+  share(){
+    
+    this.socialSharing.share()
+
   }
 }

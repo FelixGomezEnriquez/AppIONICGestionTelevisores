@@ -30,7 +30,7 @@
   font-size: 300%;
 
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 30px;
 }
 
@@ -51,4 +51,14 @@ ion-card{
 .terciario{
   --background: white;
 
+}
+ion-tab-button{
+  --ripple-color:red;
+}
+
+ion-tab-button:hover, p:hover  {
+  color: red;
+  --background-focused:red;
+  --color-selected:red;
+  --color-focused:red;
 }

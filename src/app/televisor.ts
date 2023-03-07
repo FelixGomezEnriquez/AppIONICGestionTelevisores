@@ -7,6 +7,7 @@ export interface Televisor {
     marca: string;
     pulgadas:number;
     tipo_de_pantalla:string;
+    imagen:string;
 
 
 }

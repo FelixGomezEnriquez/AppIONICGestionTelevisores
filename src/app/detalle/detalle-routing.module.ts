@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: DetallePage
+  },
+  {
+    path:"info",
+    redirectTo:"/info"
+  },
+  {
+    path:"home",
+    redirectTo:"/home"
   }
 ];
 

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Televisor } from '../televisor';
 import { Router } from '@angular/router';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -17,7 +19,7 @@ export class HomePage {
     },
   ];
 
-  constructor(private firestoreService: FirestoreService, private router:Router) {
+  constructor(private firestoreService: FirestoreService, private router:Router, private callNumber:CallNumber) {
     this.televisorEditando = {} as Televisor;
 
     this.obtenerListaTelevisores();
@@ -43,6 +45,12 @@ export class HomePage {
       });
   }
 
+
+  llamar():void{
+    this.callNumber.callNumber("648666051", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
 
   selecTelevisor(televisorSelec) {
     console.log("Televisor seleccionado: ");

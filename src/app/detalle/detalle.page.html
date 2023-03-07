@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar> 
+  <ion-toolbar>
     <ion-title size="large" class="titulo">Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -30,11 +30,19 @@
       <ion-card-subtitle><ion-input [(ngModel)]="document.data.calidadImagen"></ion-input></ion-card-subtitle>
     </ion-card-header>
 
+    <ion-card-header *ngIf="(!this.nuevo)">
+      <ion-card-title>Imagen</ion-card-title>
+      <ion-card-subtitle  >
+        <ion-img src="{{document.data.imagen}}" alt="Modelo" style="width: 300px; height: 300px;"> </ion-img>
+      </ion-card-subtitle>
+    </ion-card-header>
+
     <ion-card-header>
       <ion-card-title>Incluye mando</ion-card-title>
       <ion-card-subtitle>
-        <ion-checkbox *ngIf="(document.data.incluye_mando)" checked [(ngModel)]="document.data.incluye_mando"> Si</ion-checkbox>
-      <ion-checkbox *ngIf="(!document.data.incluye_mando)" [(ngModel)]="document.data.incluye_mando">No</ion-checkbox>
+        <ion-checkbox *ngIf="(document.data.incluye_mando)" checked [(ngModel)]="document.data.incluye_mando">
+          Si</ion-checkbox>
+        <ion-checkbox *ngIf="(!document.data.incluye_mando)" [(ngModel)]="document.data.incluye_mando">No</ion-checkbox>
 
       </ion-card-subtitle>
 
@@ -42,11 +50,31 @@
 
     <ion-button class="secundario" fill="clear" (click)="volver()">Volver </ion-button>
     <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)="presentAlert()">Borrar </ion-button>
-    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)="clicBotonModificar()">Modificar </ion-button>
-    <ion-button class="secundario" fill="clear" *ngIf="(this.nuevo)" (click)="clickBotonInsertar()">Guardar </ion-button>
-    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)=""> Imagen </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(!this.nuevo)" (click)="clicBotonModificar()">Modificar
+    </ion-button>
+    <ion-button class="secundario" fill="clear" *ngIf="(this.nuevo)" (click)="clickBotonInsertar()">Guardar
+    </ion-button>
+    <ion-button class="secundario" fill="clear" (click)="uploadImagePicker()"> Imagen </ion-button>
+    <ion-button class="secundario" fill="clear" (click)="share()"> Compartir </ion-button>
   </ion-card>
 
 
 
 </ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="planet"></ion-icon>
+        INICIO 
+      </ion-tab-button>
+      <ion-tab-button tab="info">
+        <ion-icon name="help-circle"></ion-icon>
+        INFO
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

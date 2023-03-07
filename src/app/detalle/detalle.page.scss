@@ -19,3 +19,13 @@ ion-toolbar{
   --background: white;
 
 }
+ion-tab-button{
+  --ripple-color:red;
+}
+
+ion-tab-button:hover, p:hover  {
+  color: red;
+  --background-focused:red;
+  --color-selected:red;
+  --color-focused:red;
+}

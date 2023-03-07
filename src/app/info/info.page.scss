@@ -1,0 +1,30 @@
+.primario{
+    --background: red;
+  
+  }
+  
+  .secundario{
+    --background: red;
+  
+  
+  }
+  .terciario{
+    --background: white;
+  
+  }
+  ion-icon {
+    color: red;
+    
+  }
+
+  ion-tab-button{
+    --ripple-color:red;
+  }
+  
+  ion-tab-button:hover {
+    color: red;
+    --background-focused:red;
+    --color-selected:red;
+    --color-focused:red;
+  }
+  

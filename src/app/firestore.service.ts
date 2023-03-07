@@ -41,7 +41,7 @@ export class FirestoreService {
   public uploadImage(nombreCarpeta,nombreArchivo, imagenBase64){
     let storageRef= 
     this.angularFireStorage.ref(nombreCarpeta).child(nombreArchivo)
-    return storageRef.putString("data:iamge/jpeg;base64,"+imagenBase64,'data_rul');
+    return storageRef.putString("data:image/jpeg;base64,"+imagenBase64,'data_url');
 
   }
 
