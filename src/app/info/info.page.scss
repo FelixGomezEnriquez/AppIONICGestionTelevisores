@@ -27,4 +27,12 @@
     --color-selected:red;
     --color-focused:red;
   }
+
+  .mapa{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   
